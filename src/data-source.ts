@@ -20,13 +20,27 @@ import FilterValue from "./app/filter/entities/filter-value.entity";
 import Token from "./app/token/token.entity";
 import Image from "./app/image/image.entity";
 
+console.log("");
+
+const host = process.env.HOST || "localhost";
+const port = Number(process.env.PORT) || 5051;
+const username = process.env.POSTGRES_USERNAME || "postgres";
+const password = process.env.PASSWORD || "postgres";
+const database = process.env.DATABASE || "postgres";
+
+console.log("host", host);
+console.log("port", port);
+console.log("username", username);
+console.log("password", password);
+console.log("database", database);
+
 export const AppDataSource = new DataSource({
   type: "postgres",
-  host: process.env.HOST || "localhost",
-  port: Number(process.env.PORT) || 5051,
-  username: process.env.USERNAME || "postgres",
-  password: process.env.PASSWORD || "postgres",
-  database: process.env.DATABASE || "postgres",
+  host,
+  port,
+  username,
+  password,
+  database,
   synchronize: true,
   logging: false,
   entities: [

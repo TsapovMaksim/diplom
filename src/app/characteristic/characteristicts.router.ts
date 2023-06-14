@@ -1,0 +1,129 @@
+import { Router } from "express";
+import expressAsyncHandler from "express-async-handler";
+import CharacteristictsController from "./characteristicts.controller";
+
+const characteristicsRouter = Router();
+
+characteristicsRouter
+  .route("/characteristic-types")
+  .post(
+    expressAsyncHandler(
+      CharacteristictsController.createCharacteristicType.bind(
+        CharacteristictsController
+      )
+    )
+  )
+  .get(
+    expressAsyncHandler(
+      CharacteristictsController.getCharacteristicTypes.bind(
+        CharacteristictsController
+      )
+    )
+  );
+characteristicsRouter
+  .route("/characteristic-types/:id")
+  .patch(
+    expressAsyncHandler(
+      CharacteristictsController.updateCharacteristicType.bind(
+        CharacteristictsController
+      )
+    )
+  )
+  .delete(
+    expressAsyncHandler(
+      CharacteristictsController.deleteCharacteristicType.bind(
+        CharacteristictsController
+      )
+    )
+  )
+  .get(
+    expressAsyncHandler(
+      CharacteristictsController.getCharacteristicTypeById.bind(
+        CharacteristictsController
+      )
+    )
+  );
+
+characteristicsRouter
+  .route("/characteristic")
+  .get(
+    expressAsyncHandler(
+      CharacteristictsController.getCharacteristics.bind(
+        CharacteristictsController
+      )
+    )
+  )
+  .post(
+    expressAsyncHandler(
+      CharacteristictsController.createCharacteristics.bind(
+        CharacteristictsController
+      )
+    )
+  );
+
+characteristicsRouter
+  .route("/characteristic/:id")
+  .patch(
+    expressAsyncHandler(
+      CharacteristictsController.updateCharacteristic.bind(
+        CharacteristictsController
+      )
+    )
+  )
+  .delete(
+    expressAsyncHandler(
+      CharacteristictsController.deleteCharacteristic.bind(
+        CharacteristictsController
+      )
+    )
+  )
+  .get(
+    expressAsyncHandler(
+      CharacteristictsController.getCharacteristicById.bind(
+        CharacteristictsController
+      )
+    )
+  );
+
+characteristicsRouter
+  .route("/product-characteristic")
+  .get(
+    expressAsyncHandler(
+      CharacteristictsController.getProductCharacteristics.bind(
+        CharacteristictsController
+      )
+    )
+  )
+  .post(
+    expressAsyncHandler(
+      CharacteristictsController.createProductCharacteristics.bind(
+        CharacteristictsController
+      )
+    )
+  );
+
+characteristicsRouter
+  .route("/product-characteristic/:id")
+  .patch(
+    expressAsyncHandler(
+      CharacteristictsController.updateProductCharacteristic.bind(
+        CharacteristictsController
+      )
+    )
+  )
+  .delete(
+    expressAsyncHandler(
+      CharacteristictsController.deleteProductCharacteristic.bind(
+        CharacteristictsController
+      )
+    )
+  )
+  .get(
+    expressAsyncHandler(
+      CharacteristictsController.getProductCharacteristicById.bind(
+        CharacteristictsController
+      )
+    )
+  );
+
+export default characteristicsRouter;
